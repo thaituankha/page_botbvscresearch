@@ -39,8 +39,6 @@
         event.preventDefault();
         const userText = userInput.value.trim();
         if (userText === '') return;
-
-        // Hiển thị tin nhắn của người dùng
         appendMessage(userText, 'user-message');
         userInput.value = '';
 
@@ -58,11 +56,7 @@
             }
 
             const data = await response.json();
-            
-            // Giả sử n8n trả về JSON có dạng: { "reply": "Đây là câu trả lời" }
             const botReply = data.reply || 'Xin lỗi, tôi không thể xử lý yêu cầu này.';
-            
-            // Hiển thị tin nhắn của bot
             appendMessage(botReply, 'bot-message');
 
         } catch (error) {
@@ -87,6 +81,7 @@
 </body>
 
 </html>
+
 
 
 
