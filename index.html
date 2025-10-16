@@ -71,18 +71,23 @@
         }
     });
 
+
     function appendMessage(text, className) {
         const messageElement = document.createElement('div');
         messageElement.classList.add('message', className);
-        messageElement.textContent = text;
+        const formattedText = text
+            .replace(/\n/g, '<br>') 
+            .replace(/\*\*(.*?)\*\*/g, '<b>$1</b>'); 
+        messageElement.innerHTML = formattedText;
         chatBox.appendChild(messageElement);
-        chatBox.scrollTop = chatBox.scrollHeight; 
+        chatBox.scrollTop = chatBox.scrollHeight;
     }
 </script>
 
 </body>
 
 </html>
+
 
 
 
